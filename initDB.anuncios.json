@@ -1,0 +1,30 @@
+[
+    {
+    "name" : "Samsung S20",
+    "sell" : true,
+    "price" : 650,
+    "photo" : "movil.jpg",
+    "tags" : ["mobile"]
+    },
+    {
+    "name" : "HP Omen",
+    "sell" : false,
+    "price" : 800,
+    "photo" : "hp.jpg",
+    "tags" : ["work"]
+    },
+    {
+    "name" : "KIA 2020",
+    "sell" : true,
+    "price" : 4800,
+    "photo" : "kia.jpg",
+    "tags" : ["motor"]
+    },
+    {
+    "name" : "Air Fryer",
+    "sell" : false,
+    "price" : 120,
+    "photo" : "airfryer.jpg",
+    "tags" : ["lifestyle"]
+    }
+]

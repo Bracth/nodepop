@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "cross-env DEBUG=nodeapp:* & nodemon"
+    "dev": "cross-env DEBUG=nodeapp:* & nodemon",
+    "initdb" : "node initDB.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
