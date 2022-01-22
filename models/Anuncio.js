@@ -10,6 +10,17 @@ const anuncioSchema = mongoose.Schema({
     tags: { type: [String], index: true }
 });
 
+// Creamos metodo estatico //
+
+anuncioSchema.statics.lista = function (filtros) {
+    const query = Anuncio.find(filtros);
+    query.skip(skip);
+    query.limit(limit);
+    query.select(select);
+    query.sort(sort);
+    return query.exec();
+}
+
 // Creamos el modelo //
 
 const Anuncio = mongoose.model("Anuncios", anuncioSchema);

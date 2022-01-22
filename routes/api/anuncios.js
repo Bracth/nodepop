@@ -11,7 +11,21 @@ const Anuncio = require("../../models/Anuncio.js");
 
 router.get("/", async (req, res, next) => {
     try {
-    const anuncios = await Anuncio.find();
+        const name = req.query.name;
+        const sell = req.query.sell;
+        const skip = req.paramas.skip;
+        const limit = req.paramas.limit;
+        const select = req.params.select;
+        const sort = req.params.sort;
+        const filtros = {};
+        if (name) {
+            filtros.name = name
+        }
+        if (sell) {
+            filtros.sell = sell
+        }
+        
+    const anuncios = await Anuncio.lista(filtros, skip, limit, select, sort);
     res.json({ result: anuncios})
     } catch (err) {
         next(err);
