@@ -7,5 +7,14 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <ul>
+    <% anuncios.forEach(anuncio => { %>
+        <li>
+          <h1><%= anuncio.name %></h1>
+          <p><%= anuncio.price %></p>
+        </li>
+    <% }) %>
+  </ul>
   </body>
 </html>
