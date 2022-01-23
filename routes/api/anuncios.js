@@ -15,13 +15,15 @@ router.get("/", async (req, res, next) => {
         const sell = req.query.sell;
         const tags = req.query.tags;
         const price = req.query.price;
+        const priceMax = req.query.priceMax;
+        const priceMin = req.query.priceMin;
         const skip = req.query.skip;
         const limit = req.query.limit;
         const select = req.query.select;
         const sort = req.query.sort;
         const filtros = {};
         if (name) {
-            filtros.name = name
+            filtros.name = { $regex: `^${name}`, $options: 'i' }
         }
         if (sell) {
             filtros.sell = sell
@@ -31,6 +33,15 @@ router.get("/", async (req, res, next) => {
         }
         if (price) {
             filtros.price = price
+        }
+        if (priceMax) {
+            filtros.price = {$lte: priceMax}
+        }
+        if (priceMin) {
+            filtros.price = {$gte: priceMin}
+        }
+        if (priceMax && priceMin) {
+            filtros.price = {$gte: priceMin , $lte: priceMax}
         }
         
     const anuncios = await Anuncio.lista(filtros, skip, limit, select, sort);
