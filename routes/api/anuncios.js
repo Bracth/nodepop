@@ -13,16 +13,24 @@ router.get("/", async (req, res, next) => {
     try {
         const name = req.query.name;
         const sell = req.query.sell;
-        const skip = req.paramas.skip;
-        const limit = req.paramas.limit;
-        const select = req.params.select;
-        const sort = req.params.sort;
+        const tags = req.query.tags;
+        const price = req.query.price;
+        const skip = req.query.skip;
+        const limit = req.query.limit;
+        const select = req.query.select;
+        const sort = req.query.sort;
         const filtros = {};
         if (name) {
             filtros.name = name
         }
         if (sell) {
             filtros.sell = sell
+        }
+        if (tags) {
+            filtros.tags = tags
+        }
+        if (price) {
+            filtros.price = price
         }
         
     const anuncios = await Anuncio.lista(filtros, skip, limit, select, sort);

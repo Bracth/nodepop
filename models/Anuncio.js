@@ -1,3 +1,5 @@
+'use strict';
+
 const mongoose = require("mongoose");
 
 // Definir esquema //
@@ -12,7 +14,7 @@ const anuncioSchema = mongoose.Schema({
 
 // Creamos metodo estatico //
 
-anuncioSchema.statics.lista = function (filtros) {
+anuncioSchema.statics.lista = function (filtros, skip, limit, select, sort) {
     const query = Anuncio.find(filtros);
     query.skip(skip);
     query.limit(limit);
