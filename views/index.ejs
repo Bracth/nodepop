@@ -10,9 +10,17 @@
 
     <ul>
     <% anuncios.forEach(anuncio => { %>
+        
         <li>
           <h1><%= anuncio.name %></h1>
-          <p><%= anuncio.price %></p>
+          <% if (anuncio.sell) {  %>
+          <p>Se vende</p>
+          <% } else { %>
+          <p>Se busca</p>
+          <% } %>
+          <p><%= anuncio.price %>€</p>
+          <p><%= anuncio.tags %></p>
+          <p><%= anuncio.photo %></p>
         </li>
     <% }) %>
   </ul>

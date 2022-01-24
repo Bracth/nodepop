@@ -40,7 +40,7 @@ router.get('/', async function (req, res, next) {
     
   res.locals.anuncios = await Anuncio.lista(filtros,skip,limit,select,sort);
   
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Nodepop' });
   } catch (err) {
     next(err);
   }
