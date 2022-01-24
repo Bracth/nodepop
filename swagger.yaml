@@ -1,0 +1,135 @@
+tags:
+  - name: anuncios
+    description: anuncios API
+
+paths:
+  # [GET] anuncios
+  /api/anuncios:
+    get:
+      tags:
+        - anuncios
+      summary: Find All Anuncios
+      responses:
+        200:
+          description: "OK"
+        500:
+          description: "Server Error"
+
+    # [POST] anuncios
+    post:
+      tags:
+        - anuncios
+      summary: Add anuncios
+      parameters:
+        - name: body
+          in: body
+          description: Anuncio Data
+          required: true
+          schema:
+            $ref: "#/definitions/anuncios"
+      responses:
+        201:
+          description: "Created"
+        400:
+          description: "Bad Request"
+        409:
+          description: "Conflict"
+        500:
+          description: "Server Error"
+
+  # [GET] anuncios/id
+  /anuncios/{id}:
+    get:
+      tags:
+        - anuncios
+      summary: Find Anuncio By Id
+      parameters:
+        - name: id
+          in: path
+          description: Anuncio Id
+          required: true
+          type: integer
+      responses:
+        200:
+          description: "OK"
+        409:
+          description: "Conflict"
+        500:
+          description: "Server Error"
+
+    # [PUT] anuncios/id
+    put:
+      tags:
+        - anuncios
+      summary: Update Anuncio By Id
+      parameters:
+        - name: id
+          in: path
+          description: anuncio Id
+          required: true
+          type: integer
+        - name: body
+          in: body
+          description: anuncio Data
+          required: true
+          schema:
+            $ref: "#/definitions/anuncios"
+      responses:
+        200:
+          description: "OK"
+        400:
+          description: "Bad Request"
+        409:
+          description: "Conflict"
+        500:
+          description: "Server Error"
+
+    # [DELETE] anuncios/id
+    delete:
+      tags:
+        - anuncios
+      summary: Delete Anuncio By Id
+      parameters:
+        - name: id
+          in: path
+          description: anuncio Id
+          required: true
+          type: integer
+      responses:
+        200:
+          description: "OK"
+        409:
+          description: "Conflict"
+        500:
+          description: "Server Error"
+
+# definitions
+definitions:
+  anuncios:
+    type: object
+    required:
+      - name
+      - price
+      - sell
+      - tags
+      - photo
+    properties:
+      name:
+        type: string
+        description: Nombre del articulo
+      price:
+        type: number
+        description: Precio del articulo
+      sell:
+        type: boolean
+        description: Indica si el anuncio es para vender o para buscar un articulo
+      tags:
+        type: string
+        description: Tags asociados al articulo
+      photo:
+        type: string
+        description: Direccion de la foto del articulo
+
+schemes:
+  - https
+  - http
