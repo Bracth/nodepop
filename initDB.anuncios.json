@@ -26,5 +26,19 @@
     "price" : 120,
     "photo" : "airfryer.jpg",
     "tags" : ["lifestyle"]
+    },
+    {
+    "name" : "Chaqueta Motorista",
+    "sell" : false,
+    "price" : 75,
+    "photo" : "chaqueta.jpg",
+    "tags" : ["lifestyle", "motor"]
+    },
+    {
+    "name" : "Teclado bluetooth",
+    "sell" : true,
+    "price" : 16,
+    "photo" : "teclado.jpg",
+    "tags" : ["mobile", "work"]
     }
 ]

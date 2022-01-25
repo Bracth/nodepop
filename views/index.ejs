@@ -5,22 +5,23 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    <main>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-
-    <ul>
+    </main>
+    <ul class="container">
     <% anuncios.forEach(anuncio => { %>
         
-        <li>
-          <h1><%= anuncio.name %></h1>
+        <li class="anuncio">
+          <h2><%= anuncio.name %></h2>
           <% if (anuncio.sell) {  %>
-          <p>Se vende</p>
+          <p class="description">Se vende</p>
           <% } else { %>
-          <p>Se busca</p>
+          <p class="description">Se busca</p>
           <% } %>
-          <p><%= anuncio.price %>€</p>
-          <p><%= anuncio.tags %></p>
-          <p><%= anuncio.photo %></p>
+          <p>price: <%= anuncio.price %>€</p>
+          <p>Tags: <%= anuncio.tags %></p>
+          <p>Photo: <%= anuncio.photo %></p>
         </li>
     <% }) %>
   </ul>
