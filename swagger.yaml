@@ -9,6 +9,57 @@ paths:
       tags:
         - anuncios
       summary: Find All Anuncios
+      parameters:
+        - in: query
+          name: name
+          schema:
+            type: string
+          description: Busca solo los anuncios que inicien con esos datos
+        - in: query
+          name: sell
+          schema:
+            type: boolean
+          description: true para buscar anuncios en venta o false para buscar anuncios de busqueda
+        - in: query
+          name: tags
+          schema:
+            type: string
+          description: Busca solo los anuncios que posean los tags seleccionados
+        - in: query
+          name: price
+          schema:
+            type: number
+          description: Busca solo los anuncios que coincidan con el precio
+        - in: query
+          name: priceMax
+          schema:
+            type: number
+          description: Filtra los anuncios hasta un maximo de precio
+        - in: query
+          name: priceMin
+          schema:
+            type: number
+          description: Filtra los anuncios desde un minimo de precio
+        - in: query
+          name: skip
+          schema:
+            type: number
+          description: Salta la cantidad de anuncios indicada
+        - in: query
+          name: limit
+          schema:
+            type: number
+          description: Nos limita la cantidad de anuncios a buscar
+        - in: query
+          name: select
+          schema:
+            type: string
+          description: Selecciona los datos que queremos de los anuncios
+        - in: query
+          name: sort
+          schema:
+            type: string
+          description: Oredena los anuncios segun el parametro que queramos
       responses:
         200:
           description: "OK"
