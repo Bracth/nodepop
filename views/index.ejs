@@ -21,7 +21,7 @@
           <% } %>
           <p>price: <%= anuncio.price %>€</p>
           <p>Tags: <%= anuncio.tags %></p>
-          <p>Photo: <%= anuncio.photo %></p>
+          <img src=<%= anuncio.photo %> alt=<%= anuncio.name %>>
         </li>
     <% }) %>
   </ul>

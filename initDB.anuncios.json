@@ -3,42 +3,42 @@
     "name" : "Samsung S20",
     "sell" : true,
     "price" : 650,
-    "photo" : "movil.jpg",
+    "photo" : "./images/mobile.jpg",
     "tags" : ["mobile"]
     },
     {
     "name" : "HP Omen",
     "sell" : false,
     "price" : 800,
-    "photo" : "hp.jpg",
+    "photo" : "./images/hp.jpg",
     "tags" : ["work"]
     },
     {
     "name" : "KIA 2020",
     "sell" : true,
     "price" : 4800,
-    "photo" : "kia.jpg",
+    "photo" : "./images/kia.jpg",
     "tags" : ["motor"]
     },
     {
     "name" : "Air Fryer",
     "sell" : false,
     "price" : 120,
-    "photo" : "airfryer.jpg",
+    "photo" : "./images/air-fryer.jpg",
     "tags" : ["lifestyle"]
     },
     {
     "name" : "Chaqueta Motorista",
     "sell" : false,
     "price" : 75,
-    "photo" : "chaqueta.jpg",
+    "photo" : "./images/jacket.jpg",
     "tags" : ["lifestyle", "motor"]
     },
     {
     "name" : "Teclado bluetooth",
     "sell" : true,
     "price" : 16,
-    "photo" : "teclado.jpg",
+    "photo" : "./images/keyboard.jpg",
     "tags" : ["mobile", "work"]
     }
 ]
