@@ -23,7 +23,11 @@ paths:
         - in: query
           name: tags
           schema:
-            type: string
+            type: array
+            collectionFormat: multi
+            items:
+              type: srting
+              enum: [motor, mobile]
           description: Busca solo los anuncios que posean los tags seleccionados
         - in: query
           name: price

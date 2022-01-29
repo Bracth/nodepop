@@ -5,11 +5,11 @@ const mongoose = require("mongoose");
 // Definir esquema //
 
 const anuncioSchema = mongoose.Schema({
-    name: { type: String, index: true },
-    sell: { type: Boolean, index: true },
-    price: { type: Number, index: true, min: 0.1 },
-    photo: { type: String, index: true },
-    tags: { type: [String], index: true }
+    name: { type: String, index: true, required: true },
+    sell: { type: Boolean, index: true, default: true },
+    price: { type: Number, index: true, min: 0.1, required: true },
+    photo: { type: String, index: true, required: true },
+    tags: { type: [String], index: true, enum: ["lifestyle", "work", "mobile", "motor"], required: true }
 });
 
 // Creamos metodo estatico //

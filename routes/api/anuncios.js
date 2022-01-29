@@ -29,7 +29,7 @@ router.get("/", async (req, res, next) => {
             filtros.sell = sell
         }
         if (tags) {
-            filtros.tags = tags
+            filtros.tags = { $in: tags  }
         }
         if (price) {
             filtros.price = price
@@ -44,7 +44,7 @@ router.get("/", async (req, res, next) => {
             filtros.price = {$gte: priceMin , $lte: priceMax}
         }
         
-    const anuncios = await Anuncio.lista(filtros, skip, limit, select, sort);
+        const anuncios = await Anuncio.lista(filtros, skip, limit, select, sort);
     res.json({ result: anuncios})
     } catch (err) {
         next(err);
