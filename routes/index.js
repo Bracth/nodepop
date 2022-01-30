@@ -23,7 +23,7 @@ router.get('/', async function (req, res, next) {
             filtros.sell = sell
         }
         if (tags) {
-            filtros.tags = tags
+            filtros.tags = { $in: tags  }
         }
         if (price) {
             filtros.price = price

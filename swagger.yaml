@@ -28,7 +28,7 @@ paths:
             items:
               type: srting
               enum: [motor, mobile]
-          description: Busca solo los anuncios que posean los tags seleccionados
+          description: Busca solo los anuncios que posean los tags seleccionados, los tags validos son motor, mobile, lifestyle, work
         - in: query
           name: price
           schema:
@@ -174,13 +174,13 @@ definitions:
         description: Nombre del articulo
       price:
         type: number
-        description: Precio del articulo
+        description: Precio del articulo debe ser mayor a cero
       sell:
         type: boolean
-        description: Indica si el anuncio es para vender o para buscar un articulo
+        description: Indica si el anuncio es para vender o para buscar un articulo, true para vender y false para buscar
       tags:
         type: string
-        description: Tags asociados al articulo
+        description: Tags asociados al articulo. Tags validos son work, motor, mobile, lifestyle
       photo:
         type: string
         description: Direccion de la foto del articulo
