@@ -5,11 +5,16 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const swaggerMiddleware = require("./lib/swaggerMiddleware");
 const i18n = require("./lib/i18nConfigure");
-
+const LoginController = require("./controller/loginController");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
+const dotenv = require("dotenv");
+dotenv.config();
+
 var app = express();
+
+const loginController = new LoginController();
 
 // Nos conectamos con MongoDB //
 
@@ -31,6 +36,7 @@ app.use(i18n.init);
 
 // Rutas del API //
 
+app.post("/api/login", loginController.postJWT);
 app.use("/api/anuncios", require("./routes/api/anuncios"));
 
 // Rutas de mi website //
