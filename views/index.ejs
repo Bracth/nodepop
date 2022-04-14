@@ -7,7 +7,12 @@
   <body>
     <main>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p><%= __("Welcome to") %> <%= title %></p>
+  <% getLocales().forEach(locale=> { %>
+    <a href="/change-locale/<%= locale %>">
+      <%= locale %>
+    </a>&nbsp;
+    <% }) %>
     </main>
     <ul class="container">
     <% anuncios.forEach(anuncio => { %>
@@ -15,12 +20,12 @@
         <li class="anuncio">
           <h2><%= anuncio.name %></h2>
           <% if (anuncio.sell) {  %>
-          <p class="description">Se vende</p>
+          <p class="description"><%= __("sell") %></p>
           <% } else { %>
-          <p class="description">Se busca</p>
+          <p class="description"><%= __("looking for") %></p>
           <% } %>
-          <p>price: <%= anuncio.price %>€</p>
-          <p>Tags: <%= anuncio.tags %></p>
+          <p><%= __("price") %>: <%= anuncio.price %>€</p>
+          <p><%= __("tags") %>: <%= anuncio.tags %></p>
           <img src=<%= anuncio.photo %> alt=<%= anuncio.name %>>
         </li>
     <% }) %>
