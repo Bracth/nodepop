@@ -9,6 +9,7 @@ const LoginController = require("./controller/loginController");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const jwtToken = require("./lib/jwtAuth");
+const isAPIRequest = require("./lib/utils");
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -56,6 +57,13 @@ app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
+
+  // if we have an API error
+
+  if (isAPIRequest(req)) {
+    res.json({ error: err.message });
+    return;
+  }
 
   // render the error page
   res.status(err.status || 500);
