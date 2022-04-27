@@ -3,8 +3,27 @@ const express = require("express");
 const req = require("express/lib/request");
 const router = express.Router();
 var createError = require("http-errors");
+const fs = require("fs");
 
 const Anuncio = require("../../models/Anuncio.js");
+
+// config multer to upload images
+const multer = require("multer");
+const path = require("path");
+const { dirname } = require("path");
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./public/images");
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(
+      null,
+      file.fieldname + "-" + uniqueSuffix + "." + file.mimetype.split("/")[1]
+    );
+  },
+});
+const upload = multer({ storage });
 
 // GET /api/anuncios //
 // Devuelve una lista de anuncios //
@@ -72,10 +91,11 @@ router.get("/:id", async (req, res, next) => {
 // POST /api/anuncios //
 // Crea un nuevo anuncio //
 
-router.post("/", async (req, res, next) => {
+router.post("/", upload.single("photo"), async (req, res, next) => {
   try {
     const anuncioData = req.body;
-    console.log(req.body);
+    anuncioData.photo = "." + req.file.path.split("public")[1];
+    console.log(anuncioData.photo);
 
     const anuncio = new Anuncio(anuncioData);
 

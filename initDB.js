@@ -1,4 +1,6 @@
 const readline = require("readline");
+const dotenv = require("dotenv");
+dotenv.config();
 
 // Conexion a la base base de datos //
 
@@ -9,7 +11,6 @@ const anuncioData = require("./initDB.anuncios.json");
 
 const Anuncio = require("./models/Anuncio");
 const User = require("./models/User");
-const { resolveCaa } = require("dns");
 
 async function main() {
   const deleteAnswer = await question(
