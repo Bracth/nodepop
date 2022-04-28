@@ -9,6 +9,7 @@ const anuncioSchema = mongoose.Schema({
   sell: { type: Boolean, index: true, default: true },
   price: { type: Number, index: true, min: 0.1, required: true },
   photo: { type: String, required: true },
+  thumbnail: { type: String },
   tags: {
     type: [String],
     index: true,

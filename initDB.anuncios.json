@@ -1,44 +1,50 @@
 [
     {
-    "name" : "Samsung S20",
-    "sell" : true,
-    "price" : 650,
-    "photo" : "./images/mobile.jpg",
-    "tags" : ["mobile"]
+      "name": "Samsung S20",
+      "sell": true,
+      "price": 650,
+      "photo": "./images/mobile.jpg",
+      "thumbnail": "./images/mobile_thumbnail.jpg",
+      "tags": ["mobile"]
     },
     {
-    "name" : "HP Omen",
-    "sell" : false,
-    "price" : 800,
-    "photo" : "./images/hp.jpg",
-    "tags" : ["work"]
+      "name": "HP Omen",
+      "sell": false,
+      "price": 800,
+      "photo": "./images/hp.jpg",
+      "thumbnail": "./images/hp_thumbnail.jpg",
+      "tags": ["work"]
     },
     {
-    "name" : "KIA 2020",
-    "sell" : true,
-    "price" : 4800,
-    "photo" : "./images/kia.jpg",
-    "tags" : ["motor"]
+      "name": "KIA 2020",
+      "sell": true,
+      "price": 4800,
+      "photo": "./images/kia.jpg",
+      "thumbnail": "./images/kia_thumbnail.jpg",
+      "tags": ["motor"]
     },
     {
-    "name" : "Air Fryer",
-    "sell" : false,
-    "price" : 120,
-    "photo" : "./images/air-fryer.jpg",
-    "tags" : ["lifestyle"]
+      "name": "Air Fryer",
+      "sell": false,
+      "price": 120,
+      "photo": "./images/air-fryer.jpg",
+      "thumbnail": "./images/air-fryer_thumbnail.jpg",
+      "tags": ["lifestyle"]
     },
     {
-    "name" : "Chaqueta Motorista",
-    "sell" : false,
-    "price" : 75,
-    "photo" : "./images/jacket.jpg",
-    "tags" : ["lifestyle", "motor"]
+      "name": "Chaqueta Motorista",
+      "sell": false,
+      "price": 75,
+      "photo": "./images/jacket.jpg",
+      "thumbnail": "./images/jacket_thumbnail.jpg",
+      "tags": ["lifestyle", "motor"]
     },
     {
-    "name" : "Teclado bluetooth",
-    "sell" : true,
-    "price" : 16,
-    "photo" : "./images/keyboard.jpg",
-    "tags" : ["mobile", "work"]
+      "name": "Teclado bluetooth",
+      "sell": true,
+      "price": 16,
+      "photo": "./images/keyboard.jpg",
+      "thumbnail": "./images/keyboard_thumbnail.jpg",
+      "tags": ["mobile", "work"]
     }
 ]
