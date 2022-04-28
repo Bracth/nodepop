@@ -5,12 +5,16 @@ const router = express.Router();
 var createError = require("http-errors");
 const fs = require("fs");
 
+const { Requester } = require("cote");
+
+const requester = new Requester({ name: "requesterThumbnail" });
+
 const Anuncio = require("../../models/Anuncio.js");
 
 // config multer to upload images
 const multer = require("multer");
 const path = require("path");
-const { dirname } = require("path");
+const { dirname, resolve } = require("path");
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./public/images");
@@ -95,7 +99,18 @@ router.post("/", upload.single("photo"), async (req, res, next) => {
   try {
     const anuncioData = req.body;
     anuncioData.photo = "." + req.file.path.split("public")[1];
-    console.log(anuncioData.photo);
+
+    // we send a request to a microservice to make a thumbnail
+    const event = {
+      type: "Create-Thumbnail",
+      imagePath: anuncioData.photo,
+    };
+    const thumbnail = await new Promise((resolve) =>
+      requester.send(event, resolve)
+    );
+    anuncioData.thumbnail = thumbnail;
+
+    console.log(anuncioData);
 
     const anuncio = new Anuncio(anuncioData);
 
