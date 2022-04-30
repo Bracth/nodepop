@@ -1,8 +1,32 @@
 tags:
   - name: anuncios
     description: anuncios API
+  - name: user
+    description: users API
 
 paths:
+  # [POST] user
+  /api/login:
+    post:
+      tags:
+        - user
+      summary: Login user
+      parameters:
+        - name: body
+          in: body
+          description: user data
+          required: true
+          schema:
+            $ref: "#/definitions/user"
+      responses:
+        201:
+          description: "Created"
+        400:
+          description: "Bad Request"
+        409:
+          description: "Conflict"
+        500:
+          description: "Server Error"
   # [GET] anuncios
   /api/anuncios:
     get:
@@ -64,6 +88,8 @@ paths:
           schema:
             type: string
           description: Oredena los anuncios segun el parametro que queramos
+      security:
+        api_key: [read, write]
       responses:
         200:
           description: "OK"
@@ -158,6 +184,13 @@ paths:
         500:
           description: "Server Error"
 
+# Security
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    in: "header"
+    name: "Authorization"
+
 # definitions
 definitions:
   anuncios:
@@ -185,6 +218,18 @@ definitions:
         type: string
         description: Direccion de la foto del articulo
 
+  user:
+    type: object
+    required:
+      - email
+      - password
+    properties:
+      email:
+        type: string
+        description: email del usuario
+      password:
+        type: string
+        description: contraseña del usuario
 schemes:
   - https
   - http

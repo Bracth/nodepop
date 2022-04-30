@@ -110,7 +110,7 @@ router.post("/", upload.single("photo"), async (req, res, next) => {
     );
     anuncioData.thumbnail = thumbnail;
 
-    console.log(anuncioData);
+    // create the anuncio and save in the DB
 
     const anuncio = new Anuncio(anuncioData);
 
