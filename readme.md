@@ -13,3 +13,7 @@ si se desea utilizar el api ir a esta direccion http://localhost:3000/api/anunci
 para ver toda la documentacion especifica del api visitar http://localhost:3000/api-docs alli podras revisar todos los metodos disponibles (tambien puedes usarlos en la pagina principal para filtrar en la lista de anuncios)
 
 Bonus: ir a https://www.npmjs.com/package/npm-cuenta-caracteres en donde subi un modulo en NPM
+
+URL practica de node.js http://ec2-3-232-155-214.compute-1.amazonaws.com/
+
+URL practica react http://3.232.155.214/
